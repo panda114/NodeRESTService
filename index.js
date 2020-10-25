@@ -23,6 +23,7 @@ var populatePayload = function(payload, query) {
 		payload._order = query._order
 	}
 }
+
 var unifiedServer = function(req, res) { 
 	var parsedUrl = url.parse(req.url, true);
 	var path = parsedUrl.pathname;
@@ -86,29 +87,14 @@ var httpsServerOptions = {
 	'cert' : fs.readFileSync('./https/cert.pem')
 };
 
-var httpServer = https.createServer(httpsServerOptions,function(req, res){
+var httpsServer = https.createServer(httpsServerOptions,function(req, res) {
 	unifiedServer(req, res)
 });
 
 // Start the https server
-httpServer.listen(config.httpsPort, function(){
+httpsServer.listen(config.httpsPort, function(){
 	console.log("The server is listening on port "+config.httpsPort+" in "+config.envName+" mode");
 })
-
-
-var handlers = {
-
-}
-
-handlers.sample = function(data, callback) {
-	// Callback a http status code, and a payload 
-	callback(406, {'name': 'sample handler'})
-}
-
-// Not found handler
-handlers.notFound = function(data, callback) {
-	callback(404)
-}
 
 // Define a request router
 var router = {
