@@ -1,0 +1,486 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"version": "1.0.0",
+		"title": "Articles",
+		"description": "Api to manage posts and their authors",
+		"contact": {
+			"name": "Arpit Panda",
+			"email": "pandaarpit254@gmail.com"
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3000",
+			"description": "Local server"
+ 		},
+ 		{
+ 			"url": "http://52.14.190.196:3000",
+			"description": "Public server"
+ 		}
+	],
+	"tags": [
+		{
+			"name": "CRUD operations"
+		}
+	],
+	"paths": {
+		"/posts/{id}": {
+			"get": {
+				"tags": ["CRUD operations"],
+				"description": "Get post for the specified id",
+				"parameters": [
+					{
+						"name":"id",
+						"in":"path",
+						"required": true,
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Posts were obtained",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Posts"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Internal error"
+					},
+					"500": {
+						"description": "Internal error"
+					}
+				}
+			},
+			"put":{
+				"tags": ["CRUD operations"],
+				"description": "Update a post",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+            			"description": "Post specified is updated"
+          			}
+				}
+			},
+			"patch": {
+				"tags": ["CRUD operations"],
+				"description": "Update a post",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+            			"description": "Post specified is updated"
+          			}
+				}
+			},
+			"delete": {
+				"tags": ["CRUD operations"],
+				"description": "Delete a post",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+            			"description": "Post specified is deleted"
+          			}
+				}
+			}
+		},
+		"/posts/": {
+			"get": {
+				"tags": ["CRUD operations"],
+				"description": "Get all posts",
+				"parameters": [
+					{
+						"name":"_sort",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"enum": ["views", "title"],
+							"default": "views"
+						},
+						"required": false 
+					},
+					{
+						"name":"_order",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"enum": ["asc", "desc"],
+							"default": "asc"
+						},
+						"required": false 
+					},
+					{
+						"name":"q",
+						"in": "query",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Posts were obtained",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Posts"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Internal error"
+					},
+					"500": {
+						"description": "Internal error"
+					}
+				}
+			},
+			"post": {
+				"tags": ["CRUD operations"],
+				"description": "Create a post",
+				"parameters": [],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"201": {
+            			"description": "New post was created"
+          			}
+				}
+			},
+			"delete": {
+				"tags": ["CRUD operations"],
+				"description": "Delte all posts",
+				"parameters": [],
+				"responses": {
+					"200": {
+            			"description": "All posts were deleted"
+          			}
+				}	
+			}
+		},
+		"/authors/{id}": {
+			"get": {
+				"tags": ["CRUD operations"],
+				"description": "Get the specified author",
+				"parameters": [
+					{
+						"name":"id",
+						"in":"path",
+						"required": true,
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Authors were obtained",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Authors"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Internal error"
+					},
+					"500": {
+						"description": "Internal error"
+					}
+				}
+			},
+			"put":{
+				"tags": ["CRUD operations"],
+				"description": "Update an author",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Author"
+							}
+						}
+					},
+					"required": true
+				}
+			},
+			"patch": {
+				"tags": ["CRUD operations"],
+				"description": "Update an author",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Author"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+            			"description": "Author specified is updated"
+          			}
+				}
+			},
+			"delete": {
+				"tags": ["CRUD operations"],
+				"description": "Delete the specified author",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type":"integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+            			"description": "Author specified is deleted"
+          			}
+				}
+			}
+		},
+		"/authors/":{
+			"get": {
+				"tags": ["CRUD operations"],
+				"description": "Get all authors",
+				"parameters": [
+					{
+						"name":"_sort",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"enum": ["first_name", "last_name", "posts"],
+							"default": "posts"
+						},
+						"required": false 
+					},
+					{
+						"name":"_order",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"enum": ["asc", "desc"],
+							"default": "asc"
+						},
+						"required": false 
+					},
+					{
+						"name":"q",
+						"in": "query",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Posts were obtained",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Posts"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Internal error"
+					},
+					"500": {
+						"description": "Internal error"
+					}
+				}
+			},
+			"post": {
+				"tags": ["CRUD operations"],
+				"description": "Create author",
+				"parameters": [],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Author"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"201": {
+            			"description": "New author was created"
+          			}
+				}
+			},
+			"delete": {
+				"tags": ["CRUD operations"],
+				"description": "Delte all authors",
+				"parameters": [],
+				"responses": {
+					"200": {
+            			"description": "All authors were deleted"
+          			}
+				}	
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"id":{
+				"type": "integer",
+				"description": "Unique identification number of the doc",
+				"example": 12
+			},
+			"author":{
+				"type": "string",
+				"description": "Unique identification number of the author",
+				"example": "2"
+			},
+			"title":{
+				"type": "string",
+				"description": "The title of the post",
+				"example": "Nodejs"
+			},
+			"first_name": {
+				"type": "string",
+				"description": "The first name of the author",
+				"example": "John"
+			},
+			"last_name": {
+				"type": "string",
+				"description": "The last name of the author",
+				"example": "Doe"
+			},
+			"posts":{
+				"type":"integer",
+				"description": "Number of posts written by the author",
+				"example": "5"
+			},
+			"Post": {
+				"type": "object",
+				"properties": {
+					"author": {
+						"$ref":"#/components/schemas/author"
+					},
+					"title": {
+						"$ref":"#/components/schemas/title"
+					}
+				}
+			},
+			"Posts": {
+				"type": "object",
+				"properties": {
+					"posts": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Post"
+						}
+					}
+				}
+			},
+			"Author": {
+				"type": "object",
+				"properties": {
+					"first_name": {
+						"$ref":"#/components/schemas/first_name"
+					},
+					"last_name": {
+						"$ref":"#/components/schemas/last_name"
+					}
+				}
+			},
+			"Authors": {
+				"type": "object",
+				"properties": {
+					"users": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Author"
+						}
+					}
+				}
+			}
+		}	
+	}
+}
