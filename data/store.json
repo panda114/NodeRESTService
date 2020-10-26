@@ -5,19 +5,19 @@
                 "author": "1",
                 "title": "<Title>",
                 "id": 1,
-                "views": 19
+                "views": 22
             },
             "2": {
                 "author": "2",
                 "title": "<Title>",
                 "id": 2,
-                "views": 18
+                "views": 21
             },
             "4": {
                 "author": "3",
                 "title": "<Title4>",
                 "id": "4",
-                "views": 7
+                "views": 10
             }
         },
         "index": {
@@ -34,25 +34,25 @@
                 "first_name": "John",
                 "last_name": "Doe",
                 "id": 1,
-                "views": 1
+                "views": 3
             },
             "2": {
                 "first_name": "Jane",
                 "last_name": "Doe",
                 "id": 2,
-                "views": 1
+                "views": 3
             },
             "3": {
                 "first_name": "Ray",
                 "last_name": "Doe",
                 "id": 3,
-                "views": 1
+                "views": 3
             },
             "4": {
                 "first_name": "Ray",
                 "last_name": "Doe",
                 "id": 4,
-                "views": 1
+                "views": 3
             }
         },
         "index": {
