@@ -1,66 +1,83 @@
 {
     "posts": {
-        "docs": {
-            "1": {
-                "author": "1",
-                "title": "<Title>",
-                "id": 1,
-                "views": 22
-            },
-            "2": {
-                "author": "2",
-                "title": "<Title>",
-                "id": 2,
-                "views": 21
-            },
-            "4": {
-                "author": "3",
-                "title": "<Title4>",
-                "id": "4",
-                "views": 10
-            }
-        },
         "index": {
             "1": 1,
             "2": 1,
-            "3": 0,
-            "4": 1
+            "3": 1,
+            "4": 1,
+            "5": 1
         },
-        "last_id": 4
-    },
-    "authors": {
+        "last_id": 5,
         "docs": {
             "1": {
-                "first_name": "John",
-                "last_name": "Doe",
+                "author": "1",
+                "title": "NodeJs 1",
                 "id": 1,
-                "views": 3
+                "views": 8
             },
             "2": {
-                "first_name": "Jane",
-                "last_name": "Doe",
+                "author": "2",
+                "title": "NodeJs 2",
                 "id": 2,
-                "views": 3
+                "views": 4
             },
             "3": {
-                "first_name": "Ray",
-                "last_name": "Doe",
+                "author": "3",
+                "title": "NodeJs 3",
                 "id": 3,
-                "views": 3
+                "views": 4
             },
             "4": {
-                "first_name": "Ray",
-                "last_name": "Doe",
+                "author": "4",
+                "title": "NodeJs 4",
                 "id": 4,
-                "views": 3
+                "views": 4
+            },
+            "5": {
+                "author": "1",
+                "title": "NodeJs 5",
+                "id": 5,
+                "views": 4
             }
-        },
+        }
+    },
+    "authors": {
         "index": {
             "1": 1,
             "2": 1,
             "3": 1,
             "4": 1
         },
-        "last_id": 4
+        "last_id": 4,
+        "docs": {
+            "1": {
+                "first_name": "John",
+                "last_name": "Doe",
+                "id": 1,
+                "views": 4,
+                "posts": 2
+            },
+            "2": {
+                "first_name": "Jane",
+                "last_name": "Doe",
+                "id": 2,
+                "views": 4,
+                "posts": 1
+            },
+            "3": {
+                "first_name": "Rob",
+                "last_name": "Doe",
+                "id": 3,
+                "views": 4,
+                "posts": 1
+            },
+            "4": {
+                "first_name": "Jay",
+                "last_name": "Doe",
+                "id": 4,
+                "views": 4,
+                "posts": 1
+            }
+        }
     }
 }
