@@ -272,6 +272,11 @@
 						}
 					},
 					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully updated author"
+					}
 				}
 			},
 			"patch": {
