@@ -15,7 +15,7 @@
 			"description": "Local server"
  		},
  		{
- 			"url": "http://52.14.190.196:3000",
+ 			"url": "http://52.14.190.96:3000",
 			"description": "Public server"
  		}
 	],
